@@ -12,15 +12,15 @@
             <div asp-validation-summary="All"></div>
             <div class="row mb-3">
                 <label asp-for="Name"></label>
-                <input asp-for="Name" class="form-control"/>
+                <input asp-for="Name" placeholder="@Model.Name" class="form-control"/>
                 <span asp-validation-for="Name" class="text-danger fw-bold bg-opacity-50"></span>
             </div>
         <div class="row mb-3">
             <label asp-for="DisplayOrder"></label>
-            <input asp-for="DisplayOrder" class="form-control" />
+            <input asp-for="DisplayOrder" placeholder="@Model.DisplayOrder" class="form-control" />
             <span asp-validation-for="DisplayOrder" class="text-danger fw-bold bg-opacity-50"></span>
         </div>
-        <button class="btn-primary btn" type="submit">Create</button>
+        <button class="btn-primary btn" type="submit">Update</button>
         </div>
         <br/>
         <br/>
