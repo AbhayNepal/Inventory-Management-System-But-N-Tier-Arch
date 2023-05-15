@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyAppWeb.Models;
+using MyApp.DataAccessLayer;
+using MyApp.Models;
 using System.Diagnostics;
 
 namespace MyAppWeb.Controllers

@@ -17,4 +17,9 @@
     <PackageReference Include="System.Diagnostics.Tools" Version="4.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\MyApp.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\MyApp.Models\MyApp.Models.csproj" />
+  </ItemGroup>
+
 </Project>

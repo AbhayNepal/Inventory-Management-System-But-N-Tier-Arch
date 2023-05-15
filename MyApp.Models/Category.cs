@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace MyAppWeb.Models
+namespace MyApp.Models
 {
     public class Category
     {
         [Key] 
-        public int id  { get; set; }
+        public int Id  { get; set; }
 
         [Required] 
         public string Name { get; set; }
