@@ -1,0 +1,77 @@
+﻿@model MyApp.Models.ViewModels.ProductVM 
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-4">
+    <div class="row p-3">
+        <div class="col-6 text-info fw-bold">
+            <h1>Categories</h1>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-action="CreateUpdate" class="btn btn-primary"  asp-controller="Product"  asp-action="CreateUpdate" >
+                <i class="bi bi-file-earmark-plus"></i>
+                Create New Product
+
+            </a>
+        </div>
+    </div>
+
+</div>
+
+
+<table id="myTable" class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Product Price
+            </th>
+            <th>
+                Product Description
+            </th>
+            <th>
+                
+                Category
+            </th>
+            <th>
+
+                Action
+            </th>
+
+        </tr>
+    </thead>
+  @*@<tbody>
+        @foreach(var item in Model.Products)
+        {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Price
+            </td>
+                <td>
+                    @item.Description
+                </td>
+              @*  <td>
+                    @item.CategoryId
+                </td>
+            <td role="group" class="text-center">
+                    <a asp-action="CreateUpdate" asp-controller="Product" class="btn btn-info" asp-route-id="@item.Id"><i class="bi bi-pen"></i></a>
+     
+                    <a asp-action="Delete" asp-controller="Product" class="btn btn-danger ms-3" asp-route-id="@item.Id"><i class="bi bi-trash-fill "></i></a>
+                </td>
+        </tr>
+        }
+    </tbody>*@
+</table>
+@section scripts{
+    <script src="~/js/Product.js"></script>
+}
+

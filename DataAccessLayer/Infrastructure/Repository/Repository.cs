@@ -35,14 +35,32 @@ namespace MyApp.DataAccessLayer.Infrastructure.Repository
             _dbSet.RemoveRange(entity);
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T> GetAll(string? includeProperties = null)//include properties contains the names of the tables you want to include in the product table separated by comma
         {
-            return _dbSet.ToList();
+            IQueryable<T> query = _dbSet; //make product dbset queryable
+            if(includeProperties != null)
+            {
+                foreach(var item in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))//here we are separating multiple table names which are sent separated by comma
+                {
+                    query = query.Include(item); //each table name received in the includeProperties variable will be included in the product dbset one by one.  
+                }                                //while including the items of the new table to the _dbSet i think it maintains the primary key foreign key relation.
+            }
+            return query.ToList();
         }
 
-        public T GetT(Expression<Func<T, bool>> predicate)
+        public T GetT(Expression<Func<T, bool>> predicate,string? includeProperties = null)
         {
-            return _dbSet.Where(predicate).FirstOrDefault();
+            IQueryable<T> query = _dbSet; //make product dbset queryable
+            query = query.Where(predicate);// jst the difference from GetAll method.
+            if (includeProperties != null)
+            {
+                foreach (var item in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(item); //here the includeProperties will receive the values of category table that will be included in the product dbset for the access approval of category table from products controller.
+                }
+            }
+
+            return query.FirstOrDefault();
         }
     }
 }

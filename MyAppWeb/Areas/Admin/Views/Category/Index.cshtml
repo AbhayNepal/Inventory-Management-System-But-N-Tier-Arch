@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Category> 
+﻿@model MyApp.Models.ViewModels.CategoryVM 
 @{
     Layout = "_Layout";
 }
@@ -12,7 +12,7 @@
             <h1>Categories</h1>
         </div>
         <div class="col-6 text-end">
-            <a asp-action="Create" class="btn btn-primary"  asp-controller="Category" Create New Category asp-action="Create" asp-controller="Category">
+            <a asp-action="CreateUpdate" class="btn btn-primary"  asp-controller="Category" Create New Category asp-action="CreateUpdate" asp-controller="Category">
                 <i class="bi bi-file-earmark-plus"></i>
                 Create New Category
 
@@ -27,6 +27,9 @@
     <thead>
         <tr>
             <th>
+                Category ID
+            </th>
+            <th>
                 Category Name
             </th>
             <th>
@@ -36,9 +39,12 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var item in Model)
+        @foreach(var item in Model.categories)
         {
         <tr>
+            <td>
+                @item.Id
+            </td>
             <td>
                 @item.Name
             </td>
@@ -46,7 +52,7 @@
                 @item.DisplayOrder
             </td>
             <td role="group" class="text-center">
-                    <a asp-action="Edit" asp-controller="Category" class="btn btn-info" asp-route-id="@item.Id"><i class="bi bi-pen"></i></a>
+                    <a asp-action="CreateUpdate" asp-controller="Category" class="btn btn-info" asp-route-id="@item.Id"><i class="bi bi-pen"></i></a>
      
                     <a asp-action="Delete" asp-controller="Category" class="btn btn-danger ms-3" asp-route-id="@item.Id"><i class="bi bi-trash-fill "></i></a>
                 </td>
