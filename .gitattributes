@@ -61,3 +61,10 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+
+# Set the behavior for specific file types
+*.cs text linguist-detectable=true
+*.cshtml text linguist-detectable=true
+*.sql text linguist-detectable=true
+*.html text linguist-detectable=true
+*.css text linguist-detectable=true
